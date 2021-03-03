@@ -26,7 +26,7 @@ export default class Home extends React.Component{
 	
 	//const imageName = require({Dog1});
 
-	const dogs = fetch('localhost:3000/api/dogs').then((res) => console.log(res.json()));
+	const dogs = fetch('https://localhost:3000/api/dogs').then((res) => console.log(res.json()));
 	
 	//const out = res[0];
 	
