@@ -16,7 +16,11 @@ import Dog9 from '../public/images/dog9.png';*/
 
 export default class Home extends React.Component{
 
-  render() {
+	componentDidMount() {
+		const dogs = fetch('http://localhost:3000/api/dogs').then((res) => console.log(res.json()));
+	}
+
+	render() {
 	/*const name = 'Josh Perez';
 	var element = <h1>Hello, {name}</h1>;*/
 	const added = "added text";
@@ -26,15 +30,15 @@ export default class Home extends React.Component{
 	
 	//const imageName = require({Dog1});
 
-	const dogs = fetch('https://localhost:3000/api/dogs').then((res) => console.log(res.json()));
+	//const dogs = fetch('https://localhost:3000/api/dogs').then((res) => console.log(res.json()));
 	
 	//const out = res[0];
 	
 
     return (
-		//<img src={require("../public/images/dog1.png")} alt="Dog1"/>
+		<img src="../public/images/dog1.png" alt="Dog1"/>
 		//<img src={imageName} />
-		<p1>test</p1>
+		//<p1>test</p1>
 	)
   }
 }
