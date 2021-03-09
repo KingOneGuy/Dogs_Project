@@ -1,5 +1,5 @@
 import styles from '../styles/Home.module.css';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'react-dom';
 
 export default class Home extends React.Component{
@@ -7,10 +7,6 @@ export default class Home extends React.Component{
 	constructor(props) {
 		super(props);
 		//this.state =
-	}
-
-	componentDidMount() {
-		const dogs = fetch('http://localhost:3000/api/dogs').then((res) => console.log(res.json()));
 	}
 
 	render() {
@@ -31,7 +27,21 @@ class Dogs extends React.Component{
 
 	constructor(props){
 		super(props);
-		this.state = {list: []}
+		this.state = {
+			list: []
+		};
+	}
+
+	// Can't get data from json
+	componentDidMount() {
+		//const dogs = fetch('http://localhost:3000/api/dogs').then((res) => console.log(res.json()));
+		fetch('http://localhost:3000/api/dogs')
+			.then((res) => console.log(res.json()))
+			//.then((res) => JSON.parse(res.dogs));
+			.then((res) => this.setState({ list: res }))
+				//this.setState({list: res.dogs});
+				
+			.then(console.log(this.state));
 	}
 
 	render(){
