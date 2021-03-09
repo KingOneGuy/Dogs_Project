@@ -6,6 +6,7 @@ export default class Home extends React.Component{
 
 	constructor(props) {
 		super(props);
+		//this.state =
 	}
 
 	componentDidMount() {
@@ -20,5 +21,12 @@ export default class Home extends React.Component{
    		return (
 			<img src="/images/dog1.png" alt="Dog1"/>
 		)
-  }
+  	}
+}
+
+class Dogs extends React.Component{
+	constructor(props)
+	{
+		super(props);
+	}
 }
