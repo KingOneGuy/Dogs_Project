@@ -19,15 +19,16 @@ export default class Home extends React.Component{
 	
 
    		return (
-			<div>
+			<html>
 				<img src="/images/dog1.png" alt="Dog1"/>
 				<Dogs />
-			</div>
+			</html>
 		)
   	}
 }
 
 class Dogs extends React.Component{
+
 	constructor(props){
 		super(props);
 	}
