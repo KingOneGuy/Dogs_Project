@@ -48,13 +48,13 @@ class DogList extends React.Component{
 
 		// If this check is not here, program will try to read values that don't exist
 		// componentDidMount takes time, meaning that render will run first
-		if(dogs != null){
+		/*if(dogs != null){
 			dogs.map(i => {
 				console.log(i.src);
 				console.log(i.name);
 				console.log(i.description);
 			})
-		}
+		}*/
 
 		/*return(
 			<div>
@@ -64,13 +64,26 @@ class DogList extends React.Component{
 			</div>
 		)*/
 
-		return(
-			<div>
-				<img src={this.state.src} />
-				<h1>{this.state.name}</h1>
-				<p>test</p>
-			</div>
-		)
+		
+		if(dogs != null){
+			console.log("dogs not null");
+			console.log(dogs[0].src);
+			
+			return(
+				/*dogs.map(i => {
+					<div>
+						<img src={i.src} />
+						<h1>{i.name}</h1>
+						<p>{i.description}</p>
+					</div>
+				})*/
+				<img src={dogs[0].src} />
+			)
+		}else{
+			console.log("dogs null");
+			return(<p>Not loaded.</p>)
+		}
+
 	}
 }
 
