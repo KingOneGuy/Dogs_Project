@@ -47,11 +47,11 @@ class Dogs extends React.Component{
 	}
 
 	render(){
-		const local = this.props;
+		const {src} = this.props; // same as: const image = this.props.image;
 
 		return(
 			<div>
-				<img src={local.src} alt="Dog1"/>
+				<img src={src} alt="Dog1"/>
 				<h1> I am from dogs. </h1>
 			</div>
 		)
