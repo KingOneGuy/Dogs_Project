@@ -30,7 +30,7 @@ class Dogs extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			list: []
+			list: null
 		};
 	}
 
@@ -38,16 +38,14 @@ class Dogs extends React.Component{
 	componentDidMount() {
 		//const dogs = fetch('http://localhost:3000/api/dogs').then((res) => console.log(res.json()));
 		fetch('http://localhost:3000/api/dogs')
-			.then((res) => console.log(res.json()))
+			//.then((res) => console.log(res.json()))
+			.then((res) => res.json())
 			//.then((res) => JSON.parse(res.dogs));
-			.then((res) => this.setState({ list: res }))
-				//this.setState({list: res.dogs});
-				
-			.then(console.log(this.state));
+			.then((res) => console.log(res.dogs));
 	}
 
 	render(){
-		const {src} = this.props; // same as: const image = this.props.image;
+		const {src} = this.props; // same as: const src = this.props.src;
 
 		return(
 			<div>
