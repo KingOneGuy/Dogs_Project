@@ -68,16 +68,19 @@ class DogList extends React.Component{
 		if(dogs != null){
 			console.log("dogs not null");
 			console.log(dogs[0].src);
-			
+
 			return(
-				/*dogs.map(i => {
-					<div>
-						<img src={i.src} />
-						<h1>{i.name}</h1>
-						<p>{i.description}</p>
-					</div>
-				})*/
-				<img src={dogs[0].src} />
+				<div>
+					{dogs.map(i => {
+						return(
+							<div>
+								<img src={i.src} />
+								<h1>{i.name}</h1>
+								<p>{i.description}</p>
+							</div>
+						)
+					})}
+				</div>
 			)
 		}else{
 			console.log("dogs null");
