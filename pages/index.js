@@ -23,6 +23,9 @@ export default class Home extends React.Component{
 }
 
 class Dogs extends React.Component{
+	/*  Defined props:
+	 *  src
+	 */
 
 	constructor(props){
 		super(props);
