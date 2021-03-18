@@ -44,7 +44,7 @@ class DogList extends React.Component{
 		const dogs = this.state.dogs; // local variable dogs
 
 		// If this check is not here, program will try to read values that don't exist
-		// componentDidMount takes time, meaning that render will likely run first
+		// The fetch in componentDidMount takes time, meaning that render will likely run first
 		if(dogs != null){
 			console.log("dogs not null");
 			console.log(dogs[0].src);
