@@ -6,14 +6,13 @@ export default class Home extends React.Component{
 
 	constructor(props) {
 		super(props);
-		//this.state =
 	}
 
 	render() {
+		// These variables don't have a use. They're just note-to-selfs.
 		const added = "added text";
 		const JSX_Ex = <p> this is JSX value {added} </p>;
 	
-
    		return (
 			<html>
 				<DogList />
@@ -25,7 +24,7 @@ export default class Home extends React.Component{
 class DogList extends React.Component{
 	
 	constructor(props){
-		super(props);
+		super(props); // Always run super(props) before anything else
 		this.state = {
 			dogs: null
 		};
@@ -33,64 +32,40 @@ class DogList extends React.Component{
 
 	componentDidMount() {
 		fetch('http://localhost:3000/api/dogs')
-			.then(res => res.json())
+			.then(res => res.json()) // .json automatically turns the data to a useable format
 			.then(res => this.setState(
 				{
 					dogs: res.dogs
 				}
 			));
-			//.then(res => console.log(this.state));
 	}
 
 	render(){
 		const dogs = this.state.dogs; // local variable dogs
-		//console.log(this.state.dogs.src);
 
 		// If this check is not here, program will try to read values that don't exist
-		// componentDidMount takes time, meaning that render will run first
-		/*if(dogs != null){
-			dogs.map(i => {
-				console.log(i.src);
-				console.log(i.name);
-				console.log(i.description);
-			})
-		}*/
-
-		/*return(
-			<div>
-				{() => dogs.map(i => {
-					<Dog src={i.src} name={i.name} desc={i.description} />
-				})}
-			</div>
-		)*/
-
-		
+		// componentDidMount takes time, meaning that render will likely run first
 		if(dogs != null){
 			console.log("dogs not null");
 			console.log(dogs[0].src);
 
 			return(
 				<div>
+					{/* .map is like foreach */}
 					{dogs.map(i => {
 						return(
-							<div>
-								<img src={i.src} />
-								<h1>{i.name}</h1>
-								<p>{i.description}</p>
-							</div>
+							<Dog src={i.src} name={i.name} desc={i.description} />
 						)
 					})}
 				</div>
 			)
 		}else{
 			console.log("dogs null");
-			return(<p>Not loaded.</p>)
+			return(<p>Loading dogs...</p>)
 		}
 
 	}
 }
-
-
 
 class Dog extends React.Component{
 	/*  Defined props:
@@ -104,9 +79,9 @@ class Dog extends React.Component{
 	}
 
 	render(){
-		const {src} = this.src; // same as: const src = this.props.src;
-		const {name} = this.name;
-		const {desc} = this.desc;
+		const {src} = this.props; // same as: const src = this.props.src;
+		const {name} = this.props;
+		const {desc} = this.props;
 
 		return(
 			<div>
