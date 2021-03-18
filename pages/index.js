@@ -16,8 +16,7 @@ export default class Home extends React.Component{
 
    		return (
 			<html>
-				<img src="/images/dog1.png" alt="Dog1"/>
-				<Dogs />
+				<Dogs src="/images/dog1.png"/>
 			</html>
 		)
   	}
@@ -46,7 +45,10 @@ class Dogs extends React.Component{
 
 	render(){
 		return(
-			<h1>I am from dogs</h1>
+			<div>
+				<img src={this.props.src} alt="Dog1"/>
+				<h1> I am from dogs. </h1>
+			</div>
 		)
 	}
 }
