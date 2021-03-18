@@ -30,18 +30,19 @@ class Dogs extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			list: null
+			dogs: null
 		};
 	}
 
-	// Can't get data from json
 	componentDidMount() {
-		//const dogs = fetch('http://localhost:3000/api/dogs').then((res) => console.log(res.json()));
 		fetch('http://localhost:3000/api/dogs')
-			//.then((res) => console.log(res.json()))
 			.then((res) => res.json())
-			//.then((res) => JSON.parse(res.dogs));
-			.then((res) => console.log(res.dogs));
+			.then((res) => this.setState(
+				{
+					dogs: res.dogs
+				}
+			))
+			.then((res) => console.log(this.state));
 	}
 
 	render(){
