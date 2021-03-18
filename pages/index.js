@@ -26,7 +26,7 @@ class Dogs extends React.Component{
 	/*  Defined props:
 	 *  src
 	 */
-
+	
 	constructor(props){
 		super(props);
 		this.state = {
@@ -47,9 +47,11 @@ class Dogs extends React.Component{
 	}
 
 	render(){
+		const local = this.props;
+
 		return(
 			<div>
-				<img src={this.props.src} alt="Dog1"/>
+				<img src={local.src} alt="Dog1"/>
 				<h1> I am from dogs. </h1>
 			</div>
 		)
